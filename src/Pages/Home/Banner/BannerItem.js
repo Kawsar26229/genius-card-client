@@ -2,7 +2,6 @@ import React from 'react';
 import './BannerItem.css';
 
 const BannerItem = ({ slide }) => {
-  console.log(slide);
   const { image, id, prev, next } = slide;
   return (
     <div
