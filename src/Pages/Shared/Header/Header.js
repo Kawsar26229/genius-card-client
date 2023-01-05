@@ -7,6 +7,7 @@ const Header = () => {
     <>
       <li className='font-semibold'>
         <Link to='/'>Home</Link>
+        <Link to='/login'>Login</Link>
       </li>
     </>
   );
@@ -43,7 +44,6 @@ const Header = () => {
           <img
             src={logo}
             alt=''
-            srcset=''
           />
         </Link>
       </div>

@@ -8,7 +8,6 @@ const Footer = () => {
         <img
           src={logo}
           alt=''
-          srcset=''
         />
         <p>
           ACME Industries Ltd.
