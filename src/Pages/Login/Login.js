@@ -2,9 +2,17 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import img from '../../assets/images/login/login.svg';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import {
+  FaFacebook,
+  FaGithub,
+  FaGoogle,
+  FaLinkedin,
+  IconName,
+} from 'react-icons/fa';
 
 const Login = () => {
-  const { signInWithEmail } = useContext(AuthContext);
+  const { signInWithEmail, googleLogin, githubLogin, facebookLogin } =
+    useContext(AuthContext);
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -19,6 +27,25 @@ const Login = () => {
         console.log(error);
       });
   };
+  const handleGoogleSignIn = () => {
+    googleLogin().then((result) => {
+      const user = result.user;
+      console.log(user);
+    });
+  };
+  const handleGithubSignIn = () => {
+    githubLogin().then((result) => {
+      const user = result.user;
+      console.log(user);
+    });
+  };
+  const handleFacebookSignIn = () => {
+    facebookLogin().then((result) => {
+      const user = result.user;
+      console.log(user);
+    });
+  };
+  const handleLinkedInSignIn = () => {};
   return (
     <div className='hero w-full my-20'>
       <div className='hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row'>
@@ -81,8 +108,26 @@ const Login = () => {
           </p>
           <div className='text-center my-2'>
             <p className='mb-4'>Or Sign Up with</p>
-            <button className='btn btn-outline btn-warning'>Warning</button>
-            <button className='btn btn-outline btn-warning'>Warning</button>
+            <button
+              onClick={handleGoogleSignIn}
+              className='btn btn-outline btn-warning mr-4'>
+              <FaGoogle></FaGoogle>
+            </button>
+            <button
+              onClick={handleFacebookSignIn}
+              className='btn btn-outline btn-warning mr-4'>
+              <FaFacebook></FaFacebook>
+            </button>
+            <button
+              onClick={handleLinkedInSignIn}
+              className='btn btn-outline btn-warning mr-4'>
+              <FaLinkedin></FaLinkedin>
+            </button>
+            <button
+              onClick={handleGithubSignIn}
+              className='btn btn-outline btn-warning'>
+              <FaGithub></FaGithub>
+            </button>
           </div>
         </div>
       </div>
